@@ -1,0 +1,99 @@
+version: "2.0"
+
+stories:
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: sad path 4
+#   steps:
+#   - intent: greet
+#     entities:
+#     - name1: wang
+#   - action: action_greet
+#   - active_loop: action_greet
+#   - slot_was_set:
+#     - name1: wang
+#   - slot_was_set:
+#     - requested_slot: name2
+#   - slot_was_set:
+#     - name2: hao
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_test2
+
+# - story: sad path 4
+#   steps:
+#   - intent: greet
+#     entities:
+#     - name1: wang
+#   - action: action_greet
+#   - slot_was_set:
+#     - isCorrect: ok
+#   - slot_was_set:
+#     - isBool: false
+#   - action: utter_test2
+
+- story: sad path 5
+  steps:
+  - intent: greet
+    entities:
+    - name1: wang
+    - name2: hao
+  - action: action_greet
+  - slot_was_set:
+    - name3: hao
+  - action: utter_test1
+
+- story: sad path 6
+  steps:
+  - intent: greet
+    entities:
+    - name1: wang
+  - action: utter_ask_name2
+  - intent: inform
+    entities:
+    - name2: hao
+  - action: action_greet
+  - slot_was_set:
+    - name3: hao
+  - action: utter_test2
+
+- story: sad path 7
+  steps:
+  - intent: greet
+    entities:
+    - name2: hao
+  - action: utter_ask_name1
+  - intent: inform2
+    entities:
+    - name1: wang
+  - action: action_greet
+  - slot_was_set:
+    - name3: hao
+  - action: utter_test3
